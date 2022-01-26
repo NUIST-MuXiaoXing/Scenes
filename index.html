@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NUIST Count Down</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        body {
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body style="width: 100vw;height: 100vh;overflow:hidden;display: flex;align-items: center;justify-content: center;flex-direction: column">
+<img src="./NUIST.png" width="300px" height="300px" alt="logo of NUIST">
+<h1 style="font-size: xxx-large">南京信息工程大学</h1>
+<h3 style="color: gray">Nanjing University of Information Technology and Science</h3>
+<br>
+<br>
+<h1 style="text-align: center">宣讲将会在<span id="time"></span>后开始</h1>
+</body>
+<footer>
+    <script>
+        const ti = document.getElementById("time");
+        let start_time = new Date('2022/2/5 14:00:00')
+        setInterval(tick, 1000);
+
+        function tick() {
+            let now = new Date();
+            let time1 = (start_time - now);
+            let hour = time1 / 1000 / 60 / 60 % 24;
+            let minute = time1 / 1000 / 60 % 60;
+            let second = time1 / 1000 % 60;
+            ti.innerText =
+                hour.toFixed().toString().padStart(2, '0') + "时" +
+                minute.toFixed().toString().padStart(2, '0') + "分" +
+                second.toFixed().toString().padStart(2, '0') + "秒"
+        }
+    </script>
+</footer>
+</html>
